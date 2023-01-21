@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/country_container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/country_name_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country_name"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintBottom_toTopOf="@id/country_code_TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/country_code_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country_code"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/country_name_TextView" />
+
+        <TextView
+            android:id="@+id/total_medal_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medal_total"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:layout_constraintEnd_toStartOf="@id/total_medal_ImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/total_medal_ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:contentDescription="@string/icon_represent_medals"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_emoji_events_24" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
