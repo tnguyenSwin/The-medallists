@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">The_Medallists</string>
+    <string name="country_name">Australia</string>
+    <string name="country_code">AUS</string>
+    <string name="medal_total">23</string>
+    <string name="gold_label">Gold</string>
+    <string name="silver_label">Silver</string>
+    <string name="bronze_label">Bronze</string>
+    <string name="last_Clicked_MENU">Show last clicked save</string>
+    <string name="lastClicked">SDMD(COS30017)</string>
+    <string name="last_Clicked_Message">The last country was clicked was %1$s(%2$s).</string>
+    <string name="icon_represent_medals">icon_represent_medals</string>
 </resources>
