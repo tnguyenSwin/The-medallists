@@ -10,6 +10,10 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.util.StringJoiner
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +24,34 @@ class MainActivity : AppCompatActivity() {
 
         val list = findViewById<RecyclerView>(R.id.Country_Medalist_List)
         importCSVFile()
+        writingtoExistingFile()
         list.adapter = TheMedalistAdapter { saveData(it) }
         list.layoutManager = LinearLayoutManager(this)
     }
+
+    fun writingtoExistingFile() {
+        val data = listOf(
+            TheMedalistData("ABCDEFG", "ABC", 1, 2, 3, 4, 5)
+        )
+        try{
+            val file =openFileOutput("medallists.csv", MODE_APPEND)
+            data.forEach{
+                file.bufferedWriter().use{
+
+                    out->out.write("\n${it.country_name},${it.country_code},${it.total_medal},${it.gold},${it.silver},${it.bronze}")
+                }
+            }
+            file.close()
+
+        }catch (e:IOException){
+            Log.i("Error:File","Path invalid")
+
+        }
+    }
+
+
+//"${it.country_name},${it.country_code},${it.total_medal},${it.gold},${it.silver},${it.bronze}"
+
 
     fun importCSVFile() {
         val file = resources.openRawResource(R.raw.medallists).bufferedReader()
@@ -41,6 +70,7 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
+        file.close()
         TheMedalistList.count = TheMedalistList.MedalistList.size
         Log.i("Medalist_Count", "${TheMedalistList.count}")
     }
